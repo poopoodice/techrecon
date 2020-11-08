@@ -109,23 +109,23 @@ public class ReconUAVScreen extends Screen
         PlayerEntity player = Minecraft.getInstance().player;
         if (player == null)
             return;
-        for (int i = 0; i < mapColourData.size(); i++)
-        {
-            int minX = toGraphX(i % (ReconUAVEntity.SCAN_RADIUS * 2));
-            int minY = toGraphY(i / (ReconUAVEntity.SCAN_RADIUS * 2) + 1);
-            Color colour = new Color(MaterialColor.COLORS[mapColourData.get(mapColourData.get(i))].colorValue);
-            fill(stack, minX, minY, minX + 1, minY + 1, ColorHelper.PackedColor.packColor(255, colour.getRed(), colour.getRed(), colour.getBlue()));
-        }
-//        int c = 0;
-//        for (int x = reconUAVTileEntity.getPos().getX() - ReconUAVEntity.SCAN_RADIUS; x < reconUAVTileEntity.getPos().getX() + ReconUAVEntity.SCAN_RADIUS; x++)
-//            for (int z = reconUAVTileEntity.getPos().getZ() - ReconUAVEntity.SCAN_RADIUS; z < reconUAVTileEntity.getPos().getZ() + ReconUAVEntity.SCAN_RADIUS; z++)
-//            {
-//                int minX = toGraphX(x);
-//                int minY = toGraphY(z);
-//                Color colour = new Color(MaterialColor.COLORS[mapColourData.get(c)].colorValue);
-//                fill(stack, minX, minY, minX + 1, minY + 1, ColorHelper.PackedColor.packColor(255, color.getRed(), color.getRed(), color.getBlue()));
-//                c++;
-//            }
+//        for (int i = 0; i < mapColourData.size(); i++)
+//        {
+//            int minX = toGraphX(i % (ReconUAVEntity.SCAN_RADIUS * 2));
+//            int minY = toGraphY(i / (ReconUAVEntity.SCAN_RADIUS * 2) + 1);
+//            Color colour = new Color(MaterialColor.COLORS[mapColourData.get(mapColourData.get(i))].colorValue);
+//            fill(stack, minX, minY, minX + 1, minY + 1, ColorHelper.PackedColor.packColor(255, colour.getRed(), colour.getRed(), colour.getBlue()));
+//        }
+        int c = 0;
+        for (int x = reconUAVTileEntity.getPos().getX() - ReconUAVEntity.SCAN_RADIUS; x < reconUAVTileEntity.getPos().getX() + ReconUAVEntity.SCAN_RADIUS; x++)
+            for (int z = reconUAVTileEntity.getPos().getZ() - ReconUAVEntity.SCAN_RADIUS; z < reconUAVTileEntity.getPos().getZ() + ReconUAVEntity.SCAN_RADIUS; z++)
+            {
+                int minX = toGraphX(x);
+                int minY = toGraphY(z);
+                Color colour = new Color(MaterialColor.COLORS[mapColourData.get(c)].colorValue);
+                fill(stack, minX, minY, minX + 1, minY + 1, ColorHelper.PackedColor.packColor(255, colour.getRed(), colour.getRed(), colour.getBlue()));
+                c++;
+            }
     }
 
     private void renderUAV(MatrixStack stack)

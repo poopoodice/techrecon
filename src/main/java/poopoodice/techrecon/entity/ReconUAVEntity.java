@@ -35,9 +35,10 @@ public class ReconUAVEntity extends Entity
     protected TargetPredicate targetPredicate;
     public static final int ALTITUDE = 256;
     public static final int RADIUS = 75;
-    public static final int TIME_PER_POINT = 50;
+    public static final int TIME_PER_POINT = 200;
     public static final int SEA_LEVEL = 63;
     public static final int SCAN_RADIUS = 100;
+    public static final int SCAN_CD = 200;
 
     public ReconUAVEntity(EntityType<? extends ReconUAVEntity> entityTypeIn, World worldIn)
     {
@@ -123,7 +124,7 @@ public class ReconUAVEntity extends Entity
 
     private List<LivingEntity> scan()
     {
-        scanCD = 200;
+        scanCD = SCAN_CD;
         ArrayList<LivingEntity> visuals = new ArrayList<>();
         for (Entity entity : world.getEntitiesInAABBexcluding(null, area, (entity) -> entity.isAlive() && targetPredicate.getPredicate().test(entity)))
         {

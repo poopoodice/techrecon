@@ -16,6 +16,6 @@ public class TechReconPackets
     public static void registerAllPackets()
     {
         int id = 0;
-        INSTANCE.registerMessage(++id, UpdateReconUAVTileEntityPredicateMessage.class, UpdateReconUAVTileEntityPredicateMessage::encode, UpdateReconUAVTileEntityPredicateMessage::decode, UpdateReconUAVTileEntityPredicateMessage::handle);
+        INSTANCE.registerMessage(++id, CUpdateReconUAVTileEntityMessage.class, CUpdateReconUAVTileEntityMessage::encode, CUpdateReconUAVTileEntityMessage::decode, CUpdateReconUAVTileEntityMessage::handle);
     }
 }
